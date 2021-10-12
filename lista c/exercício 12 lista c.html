@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 12 - lista C</title>
+</head>
+<body>
+  Valor guardado no cofrinho: R$<b id="b_saldo">0.00</b> <br>
+  Quantidade de depósitos feitos: <b id="b_depositos">0</b> <br>
+  Quantidade de retiradas feitas: <b id="b_saques">0</b> <br> <br>
+
+    <input id="ipt_deposito" type="text"; placeholder="Valor a ser depositado"> <br> <br>
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="sacar()">Tirar toda a grana</button>
+</body>
+</html>
+<script>
+   var saldo_atual = 0.00;
+   var depositos = 0;
+   var saques = 0;
+  function depositar() {
+    var valor = Number(ipt_deposito.value);
+    b_saldo.innerHTML = `${(saldo_atual+valor).toFixed(2)}`;
+    saldo_atual = saldo_atual+valor;
+    depositos ++;
+    b_depositos.innerHTML= depositos;
+  }
+ function sacar() {
+    b_saldo.innerHTML = "0.00";
+    saldo_atual = 0.00;
+    saques ++;
+    b_saques.innerHTML = saques;
+ }
+</script>

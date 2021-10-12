@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_numero" type="text"; placeholder="insirir um numero aleatório">
+    <button onclick="raizqua()">exibir sua raiz quadrada</button>
+    <button onclick="raizcub()">exibir sua raiz cúbica</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+
+    function raizqua() {
+        var numero = ipt_numero.value
+        div_resultado.innerHTML = `${Number(numero)**2}`
+    }
+    function raizcub() {
+        var numero = ipt_numero.value
+        div_resultado.innerHTML = `${Number(numero)**3}`
+    }
+</script>

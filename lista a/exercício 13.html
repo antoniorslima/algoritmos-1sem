@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 13</title>
+</head>
+<body>
+    <h1>Brasil x Alemanha</h1>
+<button onclick="br()">Gol do Brasil</button>
+<Button onclick="al()">Gol da Alemanha</Button>
+<button onclick="zeroa()">Recomeçar partida</button>
+<br>
+<br>
+<b>Tempo Real do Jogo</b>
+<br>
+<br>
+<div id="gol"></div> 
+
+</body>
+
+</html>
+
+<script>
+function br() {
+    gol.innerHTML += '<div style="color: green;" > É goooolll do Brasil!! </div>'
+}
+function al() {
+    gol.innerHTML += '<div style="color: yellow;background-color: red;">É goooolll da Alemanha!! </div>'
+}
+function zeroa() {
+    gol.innerHTML = ' '
+ 
+}
+</script>

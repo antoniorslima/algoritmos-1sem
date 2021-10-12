@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_num1" type="text"; placeholder="numero">
+    <input id="ipt_num2" type="text"; placeholder="numero">
+    <button onclick="calcular()">fazer potência</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var numa = ipt_num1.value;
+        var numb = ipt_num2.value;
+        div_resultado.innerHTML = ` ${numa} elevado a ${numb} dá ${Number(numa)**Number(numb)}`
+
+    }
+</script>

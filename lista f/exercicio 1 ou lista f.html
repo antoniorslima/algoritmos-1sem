@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Frutas preferidas</h3>
+   Qual fruta você tem? <input id="ipt_fruta" type="text" placeholder="nome da fruta">
+    <button onclick="verificar()">Vai comer?</button>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        if (ipt_fruta.value == 'banana' || ipt_fruta.value == 'uva') {
+            alert ('Sim, vai comer '+ ipt_fruta.value)
+        } else {
+            alert ('A fruta '+ ipt_fruta.value + ' ela não come')
+        }
+    }
+</script>

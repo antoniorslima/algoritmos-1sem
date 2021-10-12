@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14 - Lista C</title>
+</head>
+<body>
+
+   <div id="div_sumir">
+       <button onclick="play()">iniciar jogo</button>
+    </div>
+    
+    <div id="div_iniciar"; style="display: none;">
+    <img id="img_j1" onclick="dano_amarelo()" src="https://static.wikia.nocookie.net/mkwikia/images/b/b6/Scorpion_MK11_3.png/revision/latest?cb=20190405144918" height="250px">
+    <div id="div_barra1"; style="background-color: yellow; height:30px; width: 100%;"></div> <br>
+    Golpes sofridos pelo jogador 1 : <b id="b_golpe1">0</b> <br>
+    <img id="img_j2" onclick="dano_azul()" src="https://upload.wikimedia.org/wikipedia/pt/8/81/Sub-Zero.png" height="250px">
+    <div id="div_barra2"; style="background-color: blue; height:30px; width: 100%;"></div><br>
+    Golpes sofridos pelo jogador 2: <b id="b_golpe2">0</b>
+</div>
+
+
+</body> 
+</html>
+
+
+
+<script>
+    
+    function play() {
+        div_sumir.style.display="none";
+        div_iniciar.style.display="block";
+    }
+    var vida1= 100
+    var vida2= 100
+    
+    function dano_amarelo() {
+        b_golpe1.innerHTML ++;
+        vida1 -=5;
+        div_barra1.style.width=`${vida1}%`;
+    }
+    function dano_azul() {
+        b_golpe2.innerHTML ++;
+        vida2 -=5;
+        div_barra2.style.width=`${vida2}%`;
+    }
+</script>

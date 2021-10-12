@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 12 - lista 2</title>
+</head>
+<body>
+    <input id="ipt_kibase"; type="text"; placeholder="Insira o ki base do guerreiro">  <br>  <br> 
+    <div> <b> Transformar em </b></div> 
+    <button onclick="calcular_ssj()">SSJ</button>
+    <button onclick="calcular_ssj2()">SSJ2</button>
+    <button onclick="calcular_ssj3()">SSJ3</button>
+    <div id= div_sayajin></div>
+</body>
+</html>
+
+<script>
+function calcular_ssj() {
+    var kibase = ipt_kibase.value;
+    div_sayajin.innerHTML = `<br> Após se transformar em <u>SSJ</u>, o ki desse Sayajin passa a ser de <u>${Number(kibase)*50}</u> <br> <img src="ssj.png" alt="" height="300px">`
+}
+function calcular_ssj2() {
+    var kibase = ipt_kibase.value;
+    div_sayajin.innerHTML = `<br> Após se transformar em <u>SSJ2</u>, o ki desse Sayajin passa a ser de <u>${Number(kibase)*100}</u> <br> <img src="ssj2.png" alt="" height="300px">`
+}
+function calcular_ssj3() {
+    var kibase = ipt_kibase.value;
+    div_sayajin.innerHTML = `<br> Após se transformar em <u>SSJ3</u>, o ki desse Sayajin passa a ser de <u>${Number(kibase)*200}</u> <br> <img src="ssj3.png" alt="" height="300px">`
+}
+</script>

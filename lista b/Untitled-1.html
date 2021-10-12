@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_votosze"; type="text"; placeholder="votos Zé Buduia">
+    <input id="ipt_votosmaria"; type="text"; placeholder="votos Maria Bigodenha">
+    <input id="ipt_votosbrancos"; type="text"; placeholder="votos brancos">
+    <input id="ipt_votosnulos"; type="text"; placeholder="votos nulos">
+    <button onclick="resultado()">Resultado da Eleição</button>
+    <div id="div_apuracao"></div>
+    <div id="div_barra1"; style="background-color: blue; height:30px; width: 0px;"></div>
+    <div id="div_barra2"; style="background-color: red; height:30px; width: 0px;"></div>
+    <div id="div_barra3"; style="background-color: gray; height:30px; width: 0px;"></div>
+</body>
+</html>
+
+<script>
+    function resultado() {
+        var ze = ipt_votosze.value
+        var maria = ipt_votosmaria.value
+        var brancos = ipt_votosbrancos.value
+        var nulos = ipt_votosnulos.value
+        var total = `${Number(ze)+Number(maria)+Number(brancos)+Number(nulos)}`
+        var porcentagemze = `${(Number(ze)*100)/Number(total)}`
+        var porcentagemmaria = `${(Number(maria)*100)/Number(total)}`
+        var porcentageminvalidos = `${((Number(brancos)+Number(nulos))*100)/Number(total)}`
+        div_apuracao.innerHTML += `<b>Total de votos:</b> ${Number(total)} <br><br> <B>Zé Ruela:</b> ${porcentagemze}% (${Number(ze)} votos) <br><br> <b>Maria Bigodenha:</b> ${porcentagemmaria}% (${Number(maria)} votos) <br><br> <b>Inválidos:</b> ${porcentageminvalidos}% (${Number(brancos)+Number(nulos)} votos)`
+            div_barra1.style.width= `${porcentagemze}%`
+            div_barra2.style.width= `${porcentagemmaria}%`
+            div_barra3.style.width= `${porcentageminvalidos}%`
+}
+
+</script>

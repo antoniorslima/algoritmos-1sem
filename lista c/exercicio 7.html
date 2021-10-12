@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_num1" type="text"; placeholder="primeiro numero">
+    <input id="ipt_razao"; type="text"; placeholder="razão">
+    <input id="ipt_termo" type="text"; placeholder="termo">
+    <button onclick="calcular()">calcular pg</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var primeiro = ipt_num1.value
+        var razao = ipt_razao.value
+        var termo = ipt_termo.value
+        div_resultado.innerHTML = `${Number(primeiro)*(Number(razao)**(Number(termo)-1))}`
+    }
+</script>

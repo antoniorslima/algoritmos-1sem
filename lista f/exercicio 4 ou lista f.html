@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Métodos de pagamentos</h2>
+    <select id="pgto">
+        <option value="0">Selecione o método de pagamento</option>
+        <option value="1">Dinheiro</option>
+        <option value="2">Cartão de débito</option>
+        <option value="3">Cartão de Crédito</option>
+        <option value="4">Boleto</option>
+    </select>
+    <button onclick="analisar()">Analisar comprar</button>
+    <br>
+    <br>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        if (pgto.value == '1' || pgto.value == '2') {
+            div_msg.innerHTML= 'Você terá que pagar à vista'
+        } else if (pgto.value == '3' || pgto.value == '4') {
+            div_msg.innerHTML= 'Pagamento poderá ser parcelado'
+        }
+    }
+</script>

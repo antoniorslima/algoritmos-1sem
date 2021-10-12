@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Faculdade Mentes Brilhantes - Processo Seletivo</h2>
+   Digite sua nota do ENEM: <input id="ipt_enem" type="text" placeholder="inserir nota"> <br> <br>
+   Digite sua nota do Vestibular interno: <input id="ipt_vest" type="text" placeholder="inserir nota"> <br> <br>
+   <button onclick="avaliar()">Avaliação</button>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        if (ipt_enem.value > 800 || ipt_vest.value >= 700) {
+            alert ('Parabéns! Aprovado')
+        } else {
+            alert ('Tente semestre que vem!')
+        }
+    }
+</script>

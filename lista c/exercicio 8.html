@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_avista" type="text"; placeholder="valor à vista">
+    <input id="ipt_juros" type="text"; placeholder="taxa de juros">
+    <input id="ipt_parcelas" type="text"; placeholder="qtd de parcelas">
+    <button onclick="calcular()">calcular preju</button>
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular() {
+    var cheio = ipt_avista.value
+    var juros = ipt_juros.value
+    var parcelas = ipt_parcelas
+    var financiado = `${Number(cheio)*(Number(juros)/100)**(Number(parcelas)-1)}`
+    div_resultado.innerHTML = `Seu carro vai sair por um total de R$${financiado}. Após 1 mês, ele já vai valer só R$${Number(cheio)*0.8}. Porque comprou financiado, vai pagar o correspondente a x carros.`
+    }
+</script>

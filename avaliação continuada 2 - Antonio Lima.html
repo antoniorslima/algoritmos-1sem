@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aco Pip</title>
+</head>
+<body>
+
+<h2>Aco Pip - AS MELHORES PIPOCAS DO BRASIL</h2>
+    <br><br>
+<select id="produto">
+    <option value="">Selecione o sabor</option>
+    <option value="Pipoca com chocolate">Pipoca com chocolate</option>
+    <option value="Pipoca com caramelo">Pipoca com caramelo</option>
+</select>
+
+<select id="embalagem">
+    <option value="">Selecione a embalagem</option>
+    <option value="Pacote pequeno">Pacote pequeno</option>
+    <option value="Pacote grande">Pacote grande</option>
+</select>  
+
+    <input id="ipt_qtd" type="text" placeholder="Insira a quantidade">
+    <input id="ipt_acucar" type="text" placeholder="Açúcar adicional">
+
+<button id="button_orcar" onclick="orcar()">Orçar</button>
+    <br><br>
+<div id="div_orc" style="display: none;">
+    <h3>Resumo do Orçamento</h3>
+
+    Quantidade Solicitada: <span id="span_qtd"></span>
+    <br><br>
+    Embalagem Selecionada: <span id="span_emb"></span>
+    <br><br>
+    Produto Selecionado: <span id="span_prod"></span>
+    <br><br><br>
+    O Valor Total das Pipocas é de R$ <span id="span_valor"></span>
+    <br><br>
+</div>
+    <br><br>
+<div id="div_msg"></div>
+    <br><br>
+<div id="div_buttons" style="display: none;">
+    <button onclick="reiniciar()">Novo Orçamento</button>
+    <button onclick="comprar()">Comprar</button>
+</div>
+
+</body>
+</html>
+
+<script>
+    var total;
+    function orcar() {
+     var quantidade= ipt_qtd.value;
+    var acucar= ipt_acucar.value;
+        if (ipt_qtd.value < 500 ) {
+            div_msg.innerHTML= "Vendemos somente no atacado";
+        } else if (ipt_qtd.value > 5000) {
+            div_msg.innerHTML= "Consulte nosso PCP (Planejamento e Controle de Produção)";
+        } else if (acucar < 0 || acucar > 8) {
+            div_msg.innerHTML= "Quantidade adicional de açúcar inválida";
+        } else {
+            span_qtd.innerHTML= ipt_qtd.value;
+            span_emb.innerHTML= embalagem.value;
+            span_prod.innerHTML= produto.value;
+            button_orcar.style.display='none';
+            div_orc.style.display='block';
+            div_buttons.style.display='block';
+
+            if (produto.value =='Pipoca com caramelo' && embalagem.value == 'Pacote pequeno') {
+                total= `${(Number(quantidade)* 1.10).toFixed(2)}`;
+                span_valor.innerHTML= total;
+            } else if (produto.value =='Pipoca com chocolate' && embalagem.value == 'Pacote pequeno') {
+                total= `${(Number(quantidade)* 1.20).toFixed(2)}`;
+                span_valor.innerHTML= total;
+            } else if (produto.value =='Pipoca com caramelo' && embalagem.value == 'Pacote grande') {
+                total= `${(Number(quantidade)* 1.70).toFixed(2)}`;
+                span_valor.innerHTML= total;
+            } else if (produto.value =='Pipoca com chocolate' && embalagem.value == 'Pacote grande') {
+                var total= `${(Number(quantidade)* 1.80).toFixed(2)}`;
+                span_valor.innerHTML= total;
+            } 
+        }
+        if (acucar > 4 && acucar <= 8) {
+            div_msg.innerHTML= `Para essa quantidade adicional de açúcar será cobrado um adicional de R$ ${(Number(total)*0.07).toFixed(2)}`; 
+        } else {
+                div.style.display='none';
+        }    
+    }
+
+function comprar() {
+    var sorteio= (Math.random()*2+3.5);
+    alert(`PARABÉNS!!! Você recebeu um bônus de ${sorteio.toFixed(1)}%`)
+}
+
+function reiniciar() {
+    div_msg.style.display='none';
+    div_orc.style.display='none';
+    div_buttons.style.display='none';
+    button_orcar.style.display='block';
+}
+
+</script>

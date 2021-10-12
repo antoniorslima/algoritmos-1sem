@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 6 lista d</title>
+</head>
+<body>
+
+    <select id="estacoes"; onchange="mostrar()">
+    <option value="">selecione a estação</option>
+<option value="<br> <img src='https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg' style='height: 200px'>">Primavera</option>
+<option value="<br> <img src='https://cevisa.org.br/portal/wp-content/uploads/2021/01/verao.png' style='height: 200px'>">Verão</option>
+<option value="<br> <img src='https://dicasparaviagens.com.br/wp-content/uploads/2017/03/Outono-Principal.jpg' style='height: 200px'>">Outono</option>
+<option value="<br> <img src='https://www.infoescola.com/wp-content/uploads/2008/10/inverno.jpg' style='height: 200px'>">Inverno</option>
+
+</select>
+<div id="div_imagem"></div>
+</body>
+</html>
+ <script>
+     function mostrar() {
+         div_imagem.innerHTML= `${estacoes.value}`
+     }
+ </script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8 - Lista 2</title>
+</head>
+<body>
+    <input id="ipt_salario"; type="text"; placeholder="Insira o seu Salário">
+    <button onclick="calcular()">Calcular Descontos</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+function calcular() {
+    var salario= ipt_salario.value
+    div_resultado.innerHTML += `Seus descontos serão de: <br> INSS: <b> R$${Number(salario)*0.1} </b> <br> IR: <b> R$${Number(salario)*0.2} </b> <br> Total de descontos: <b> R$${((Number(salario)*0.1)+(Number(salario)*0.2))} </b> <br>    Seu salário, após os descontos será de: <u> <b> $${Number(salario)-((Number(salario)*0.1)+(Number(salario)*0.2))} </b> </u> <br>` 
+}
+
+
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 11 lista d</title>
+</head>
+<body>
+    
+<select id="moedas">
+    <option value="">selecione a moeda</option>
+    <option value="0.05">5 centavos</option>
+    <option value="0.1">10 centavos</option>
+    <option value="0.25">25 centavos</option>
+    <option value="0.5">50 centavos</option>
+    <option value="1.00">1 real</option>
+</select>
+<button onclick="adicionar()">Adicionar</button>
+<button onclick="tirar()">Gastar grana</button>
+<br><br>
+    O saldo do cofrinho é de: R$<b id="b_saldoatual">0,00</b> <br>
+    A quantidade de operações foi: <b id="b_operacoes">00</b> <br>
+    Média dos depósitos: R$<b id="b_media">00,00</b>
+
+</body>
+</html>
+
+<script>
+
+    var inicial= 0.00;
+    var operacoes= 0;
+
+function adicionar() {
+    var adicionado= Number(moedas.value);
+    var saldoatual=  Number(inicial)+Number(adicionado);
+b_saldoatual.innerHTML= saldoatual.toFixed(2);
+    inicial= adicionado+inicial;
+    operacoes ++;
+b_operacoes.innerHTML= operacoes;
+b_media.innerHTML= `${((Number(saldoatual)/Number(operacoes)).toFixed(2))}`
+}
+function tirar() {
+    b_saldoatual.innerHTML= "0.00";
+    b_operacoes.innerHTML= "0";
+    b_media.innerHTML= "0,00";
+
+}
+
+</script>

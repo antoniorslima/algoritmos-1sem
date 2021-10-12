@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Consumo anual de refri</h2>
+    <input id="ipt_qtd" type="text" placeholder="quantidade de latinhas"> 
+    <button onclick="calcular()">quantos refris?</button> <br>
+    <span id="span_resultado"></span>
+</body>
+</html>
+<script>
+    function calcular() {
+        var anual = ipt_qtd.value * 365;
+        span_resultado.innerHTML= 'anualmente voce toma ' + anual + ' latinhas';
+        if (anual > 500) { alert ('cuidado com o diabetes');
+            
+        }
+    }
+</script>

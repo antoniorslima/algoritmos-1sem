@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11 e 12</title>
+</head>
+<body>
+    
+<button onclick="avaliar()">Avaliar</button> 
+<button onclick="equipe()">Equipe</button>
+<br><br>
+<div>nota do atendimento: <b id="b_nota">0</b> </div>
+<div id="div_img"></div>
+<div id="div_msg"></div>
+<div id="div_img1"></div>
+
+</body>
+</html>
+
+<script>
+    var qtd = 0;
+    var nota = 0;
+    var total= 0;
+    function avaliar() {
+        qtd ++;
+        nota = (Math.random()*5).toFixed(1);
+        total += Number(nota);
+        if (nota > 4.5) {
+            b_nota.innerHTML= `${nota}`;
+            div_img.innerHTML= `<img src="https://cdn.pixabay.com/photo/2017/03/05/21/55/emoticon-2120024_640.png" height="150px">`;        
+        } else if (nota > 3.5 && nota <=4.5) {
+            b_nota.innerHTML= `${nota}`;
+            div_img.innerHTML= `<img src="https://i.pinimg.com/originals/30/79/39/307939d6388aa145b2fb0142a8b1e91b.png" height="150px">`; 
+        } else if (nota >1.5 && nota <= 3.5) {
+            b_nota.innerHTML= `${nota}`;
+            div_img.innerHTML= `<img src="https://emojitool.com/img/whatsapp/2.21.11.17/neutral-face-35.png" height="150px">`; 
+        } else if (nota > 0.5 && nota<= 1.5) {
+            b_nota.innerHTML= `${nota}`;
+            div_img.innerHTML= `<img src="https://emojitool.com/img/whatsapp/2.19.352/slightly-frowning-face-65.png" height="150px">`; 
+        } else {
+            b_nota.innerHTML= `${nota}`;
+            div_img.innerHTML= `<img src="https://imagensemoldes.com.br/wp-content/uploads/2018/06/Emoji-Triste-PNG.png" height="150px">`; 
+        }
+    }
+    function equipe() {
+        var media = (total / qtd).toFixed(1);
+        div_msg.innerHTML= `média da equipe: <b>${media}</b>`;
+        if (media > 4.5) {
+            div_img1.innerHTML= `<img src="https://cdn.pixabay.com/photo/2017/03/05/21/55/emoticon-2120024_640.png" height="150px">`;        
+        } else if (media > 3.5 && media <=4.5) {
+            div_img1.innerHTML= `<img src="https://i.pinimg.com/originals/30/79/39/307939d6388aa145b2fb0142a8b1e91b.png" height="150px">`; 
+        } else if (media >1.5 && media <= 3.5) {
+            div_img1.innerHTML= `<img src="https://emojitool.com/img/whatsapp/2.21.11.17/neutral-face-35.png" height="150px">`; 
+        } else if (media > 0.5 && media<= 1.5) {
+            div_img1.innerHTML= `<img src="https://emojitool.com/img/whatsapp/2.19.352/slightly-frowning-face-65.png" height="150px">`; 
+        } else {
+            b_nota.innerHTML= `${nota}`;
+            div_img1.innerHTML= `<img src="https://imagensemoldes.com.br/wp-content/uploads/2018/06/Emoji-Triste-PNG.png" height="150px">`; 
+        }
+    }
+</script>

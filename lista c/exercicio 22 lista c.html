@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22 - lista C</title>
+</head>
+<body>
+    <div id="div_dados"; style="display: block";>
+    <input id="ipt_zl"; type="text"; placeholder="entregas ZL">
+    <input id="ipt_zs"; type="text"; placeholder="entregas ZS">
+    <input id="ipt_zn"; type="text"; placeholder="entregas ZN">
+    <input id="ipt_zo"; type="text"; placeholder="entregas ZO">
+    <button onclick="ocultar()">carregar agenda</button>
+</div>
+
+    <div id="div_infos"; style="display: none">
+        Entregas ZL: <span id="span_zl">X</span> <br>
+        Entregas ZS: <span id="span_zs">X</span> <br>
+        Entregas ZN: <span id="span_zn">X</span> <br>
+        Entregas ZO: <span id="span_zo">X</span> <br><br>
+        Entregas restantes: <b id="b_restantes">T</b> <br><br>
+
+        <button onclick="zl()"> Entregar ZL</button>
+        <button onclick="zs()"> Entregar ZS</button>
+        <button onclick="zn()"> Entregar ZN</button>
+        <button onclick="zo()"> Entregar ZO</button>
+        
+    </div>
+</body>
+</html>
+<script>
+    
+    function ocultar() {
+        div_dados.style.display="none";
+        div_infos.style.display="block";
+        var ax_zl = `${Number(ipt_zl.value)}`;
+        var ax_zs = `${Number(ipt_zs.value)}`
+        var ax_zn = `${Number(ipt_zn.value)}`
+        var ax_zo = `${Number(ipt_zo.value)}`
+      
+        span_zl.innerHTML= ax_zl;
+        span_zs.innerHTML= ax_zs;
+        span_zn.innerHTML= ax_zn;
+        span_zo.innerHTML= ax_zo;
+        
+        b_restantes.innerHTML= Number(ax_zl)+ Number(ax_zs)+ Number(ax_zo)+ Number(ax_zn);
+    }
+    function zl() {
+       span_zl.innerHTML -=1; 
+       b_restantes.innerHTML -=1;
+    }
+    function zs() {
+       span_zs.innerHTML -=1;
+       b_restantes.innerHTML -=1; 
+    }
+    
+    function zn() {
+       span_zn.innerHTML -=1; 
+       b_restantes.innerHTML -=1;
+    }
+    function zo() {
+       span_zo.innerHTML -=1; 
+       b_restantes.innerHTML -=1;
+    }
+</script>
