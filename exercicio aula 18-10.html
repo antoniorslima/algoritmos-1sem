@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Entre com o limite inferior: <input id="ipt_inf" type="text" placeholder="número mínimo">
+    <br><br>
+    Entre com o limite superior: <input id="ipt_sup" type="text" placeholder="número máximo">
+    <button id="button" onclick="mostrar()">Mostrar</button>
+    <br><br>
+    <b id="b_num"></b>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        var inf= ipt_inf.value;
+        var sup= ipt_sup.value;
+        var cont= inf-1;
+        b_num.innerHTML= '';
+while (cont < sup) {
+    cont ++;
+    var verificar= cont % 2;
+    if (verificar == 0) {
+        b_num.innerHTML+= `${cont} <br>`
+    }
+    }
+}
+</script>
