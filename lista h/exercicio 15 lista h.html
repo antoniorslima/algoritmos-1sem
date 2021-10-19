@@ -20,11 +20,16 @@ Insira a quantidade de elefantes
 
 <script>
     function mostrar() {
-        var cont= 0;
+        var cont= 1;
         var vezes= ipt_vezes.value;
+        var incomodam= 'incomodam, ';
+        div_msg.innerHTML= '';
+        ipt_vezes.value= '';
         while (cont < vezes) {
             cont ++;
-           div_msg.innerHTML= `1 elefante incomoda muita gente!` 
+            incomodam += 'incomodam, ';
+           div_msg.innerHTML+= `1 elefante incomoda muita gente! <br>
+           ${cont} elefantes ${incomodam} muita mais! <br><br>` 
         }
     }
 </script>
