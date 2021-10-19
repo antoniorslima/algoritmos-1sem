@@ -20,9 +20,14 @@
     function sortear() {
         div_msg.innerHTML= '';
         var qtd= 0;
+        var sorteado= 0;
         while (qtd < ipt_num.value) {
             qtd ++;
-            div_msg.innerHTML+= `${(Math.random()*100).toFixed()} <br>`;
+            sorteado = (Math.random()*100).toFixed();
+            div_msg.innerHTML+= `${sorteado} <br>`;
+            if (sorteado % 6 == 0) {
+                break;
+            } 
         }
         
     }
