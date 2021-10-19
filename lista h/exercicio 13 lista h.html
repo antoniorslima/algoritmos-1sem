@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    com qual frequencia voce faz musculação ao mes?
+    <br>
+    <input id="ipt_dias" type="text" placeholder="quantidade de dias">  
+    <br><br>
+    <button onclick="mostrar()">Exibir rotina mensal</button>
+    <br><br> 
+<div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+function mostrar() {
+    cont = 0;
+    freq = ipt_dias.value;
+    
+    while (cont < 30) {
+        conferir= cont % freq || cont;
+        if (cont % freq != 0) {
+            div_msg.innerHTML+= `Dia ${cont+1}- Comer, dormir etc <br>`;
+        } else {   
+        div_msg.innerHTML+= `Dia ${cont+1}- <b>Musculação </b> <br>`
+        }
+        cont++;
+        
+    }
+}
+</script>
