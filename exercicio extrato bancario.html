@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extrato bancário</title>
+</head>
+<body>
+
+<div id="div_inicial">
+    <h3>Extrato Bancário</h3>
+Nome do cliente: <input id="ipt_nome" type="text">
+<br><br>
+Código do banco: <input id="ipt_banco" type="text">
+<br><br>
+Agência: <input id="ipt_agencia" type="text"> 
+<br><br>
+Conta: <input id="ipt_conta" type="text">
+<br><br>
+Dígito: <input id="ipt_digito" type="text">
+<br><br>
+<button onclick="consultar()">Consultar extrato</button>
+</div>
+<div id="div_segunda" style="display: none;">
+    <br><br>
+    <select name="" id="modo">
+        <option value="">Selecione a modalidade</option>
+        <option value="Débito">Débito</option>
+        <option value="Crédito">Crédito</option>
+    </select>
+    <br><br>
+    Informe a data: <input id="ipt_data" type="text">
+    <br><br>
+    Valor da movimentação: <input id="ipt_mov" type="text">
+    <br><br>
+<button onclick="extrato()">Extrato</button> <button onclick="voltar()">Mudar de conta</button>
+</div>
+<div id="div_extrato"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+    function consultar(){
+        var cliente= ipt_nome.value;
+        var banco= ipt_banco.value;
+        var agencia= ipt_agencia.value;
+        var conta= ipt_conta.value;
+        var digito= ipt_digito.value;
+        var digito11= Number(conta)%11;
+        var digito10= Number(digito11)%10;
+
+    if (cliente.length < 3) {
+        alert('O nome tem que ter mais de 3 letras')
+    }
+    else if (banco != 001 && banco != 102 && banco != 237 && banco != 341) {
+        alert('Só atendemos os bancos 001, 102, 237 ou 341')
+    }
+    else if (agencia <= 0 || agencia >= 999) {
+        alert('Número da agencia tem que ser maior que 0 e menor que 999')
+    }
+    else if (conta <= 0 || conta >= 9999) {
+        alert('Número da conta tem que ser maior que 0 e menor que 9999')
+    }
+    else if (digito != digito10) {
+        alert('Dígito inválido')
+    } else {
+        div_inicial.style.display='none';
+        div_segunda.style.display='block';
+    }
+    }
+
+    function extrato() {
+        
+    }
+
+    function voltar() {
+        div_inicial.style.display='block';
+        div_segunda.style.display='none';
+        div_extrato.style.display='none';
+        ipt_nome.value= '';
+        ipt_banco.value= '';
+        ipt_agencia.value= '';
+        ipt_conta.value= '';
+        ipt_digito.value= '';
+
+    }
+</script>
