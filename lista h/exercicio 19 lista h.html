@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>trajeto até a bandtec</h3>
+Insira a quantidade de ônibus: <input id="ipt_onibus" type="text"> 
+<br>
+Insira a quantidade de trens: <input id="ipt_trens" type="text">
+<br>
+Insira a quantidade de metrôs: <input id="ipt_metros" type="text">
+<br>
+<button onclick="mostrar()">#partiutrajeto</button>
+<br><br>
+<div id="div_bus" style="color: red;"></div>
+<div id="div_trens" style="color: green;"></div>
+<div id="div_metros" style="color: blue;"></div>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        var onibus = Number(ipt_onibus.value);
+        var trens = Number(ipt_trens.value);
+        var metros = Number(ipt_metros.value);
+        var cont_bus = 0;
+        var cont_trens = 0;
+        var cont_metros = 0;
+        while (onibus > cont_bus) {
+            cont_bus ++;
+            div_bus.innerHTML += `Pegando o ${cont_bus}º buzão <br>`
+        }
+        while (trens > cont_trens) {
+            cont_trens ++;
+            div_trens.innerHTML += `Pegando o ${cont_trens}º trem <br>`
+        }
+        while (metros > cont_metros) {
+            cont_metros ++;
+            div_metros.innerHTML += `Pegando o ${cont_metros}º metrô <br>`
+        }
+      
+    }
+</script>
