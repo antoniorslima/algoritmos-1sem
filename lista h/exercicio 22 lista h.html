@@ -9,19 +9,39 @@
 <body>
     
 <h3>Sorteio</h3>
+<div id="div_inicial">
 Insira a quantidade de números a serem sorteados: <input id="ipt_qtd" type="number">
 <br>
 Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="number">
 <br>
 <button onclick="sortear()">Sortear</button>
+</div>
+<div id="div_num"></div>
 
 </body>
 </html>
 
 <script>
     function sortear() {
-        if (ipt_qtd.value < 10 && ipt_qtd.value > 50) {
-            alert('o número precisa ser maior que 10 e menor que 50')
+        if (ipt_qtd.value < 10 || ipt_qtd.value > 50) {
+            alert('o número precisa estar entre 10 e 50');
+        }
+        else if (ipt_divisor.value < 1 || ipt_divisor.value > 10) {
+            alert('o divisor precisa estar entre  1 e  10');
+        }
+        else {
+            div_inicial.style.display= 'none';
+            
+            contador= 1;
+            while (contador < ipt_qtd.value) {
+                var sorteio = (Math.random()* 100).toFixed()
+             div_num.innerHTML+= '<br>' + sorteio; 
+             contador ++;  
+            if (sorteio % ipt_divisor.value == 0) {
+                div_num.innerHTML+= `<span style="color: red;">${sorteio}</span>`; 
+            }
+            }
+            
         }
     }
 </script>
