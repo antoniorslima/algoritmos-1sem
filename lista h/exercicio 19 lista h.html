@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,16 +32,34 @@ Insira a quantidade de metrôs: <input id="ipt_metros" type="text">
         var cont_metros = 0;
         while (onibus > cont_bus) {
             cont_bus ++;
-            div_bus.innerHTML += `Pegando o ${cont_bus}º buzão <br>`
+            div_bus.innerHTML += `<br><b>Pegando o ${cont_bus}º buzão</b> `
+            if (cont_bus == 2) {
+                div_bus.innerHTML += `Começando a cansar`
+            }
+            if (cont_bus > 2) {
+                div_bus.innerHTML += `Já cansado!`
+            }
         }
         while (trens > cont_trens) {
             cont_trens ++;
-            div_trens.innerHTML += `Pegando o ${cont_trens}º trem <br>`
+            div_trens.innerHTML += `<br><b>Pegando o ${cont_trens}º trem</b> `
+            if (cont_trens == 2) {
+                div_trens.innerHTML += `Começando a cansar`
+            }
+            if (cont_trens > 2) {
+                div_trens.innerHTML += `Já cansado!`
+            }
         }
         while (metros > cont_metros) {
             cont_metros ++;
-            div_metros.innerHTML += `Pegando o ${cont_metros}º metrô <br>`
+            div_metros.innerHTML += `<br><b>Pegando o ${cont_metros}º metrô</b> `
+            if (cont_metros == 2) {
+                div_metros.innerHTML += `Começando a cansar`
+            }
+            if (cont_metros > 2) {
+                div_metros.innerHTML += `Já cansado!`
+            }
         }
-      
+    
     }
 </script>

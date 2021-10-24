@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h3>Sorteio</h3>
+Insira a quantidade de números a serem sorteados: <input id="ipt_qtd" type="number">
+<br>
+Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="number">
+<br>
+<button onclick="sortear()">Sortear</button>
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        if (ipt_qtd.value < 10 && ipt_qtd.value > 50) {
+            alert('o número precisa ser maior que 10 e menor que 50')
+        }
+    }
+</script>
