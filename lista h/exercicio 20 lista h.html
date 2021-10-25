@@ -21,15 +21,20 @@
         contador= 1;
         
         while (contador <= 100) {
-    div_msg.innerHTML+= contador + '<br>';
-        contador ++;
-        if (contador % 3 == 0) {
-            div_msg.innerHTML+= '<b> É TRI!</b>'; 
+    
+        if (contador % 3 == 0 && contador % 5 == 0) {
+            div_msg.innerHTML+= '<b>É TRI! É PENTA!</b><br>';
         }
-        if (contador % 5 == 0) {
-            div_msg.innerHTML+= '<b> É PENTA!</b>';
+        else if (contador % 5 == 0) {
+            div_msg.innerHTML+= '<b> É PENTA!</b><br>';
         }  
-        
+        else if (contador % 3 == 0) {
+            div_msg.innerHTML+= '<b> É TRI!</b><br>'; 
+        }
+        else {
+            div_msg.innerHTML+= contador + '<br>';
+        }
+        contador ++;
  }
     }
 </script>

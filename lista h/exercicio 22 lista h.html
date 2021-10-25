@@ -16,6 +16,13 @@ Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="n
 <br>
 <button onclick="sortear()">Sortear</button>
 </div>
+<div id="div_final" style="display: none;" >
+    O maior número sorteado foi: <span id="span_maior"></span>
+<br><br>
+    O menor número sorteado foi: <span id="span_menor"></span>
+<br><br>
+    A média de todos os números sorteados é: <span id="span_media"></span>
+</div>
 <div id="div_num"></div>
 
 </body>
@@ -31,15 +38,19 @@ Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="n
         }
         else {
             div_inicial.style.display= 'none';
-            
-            contador= 1;
+            div_final.style.display= 'block';
+            contador= 0;
             while (contador < ipt_qtd.value) {
                 var sorteio = (Math.random()* 100).toFixed()
-             div_num.innerHTML+= '<br>' + sorteio; 
-             contador ++;  
+                contador ++;
+               
             if (sorteio % ipt_divisor.value == 0) {
-                div_num.innerHTML+= `<span style="color: red;">${sorteio}</span>`; 
+                div_num.innerHTML+= `<span style="color: red;">${sorteio}</span> <br>`; 
             }
+            else {
+                div_num.innerHTML+= sorteio+'<br>'; 
+            }
+            
             }
             
         }

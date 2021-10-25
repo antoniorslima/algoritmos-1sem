@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="t">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+Insira a quantidade de elefantes 
+<br>
+<input id="ipt_vezes" type="text" placeholder="quantidade de elefantes">
+<br>
+<button onclick="mostrar()">atazanar a médium</button>
+<div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        var cont= 1;
+        var vezes= ipt_vezes.value;
+        div_msg.innerHTML= '';
+        ipt_vezes.value= '';
+        while (cont < vezes) {
+            cont ++;
+           div_msg.innerHTML+= `1 elefante incomoda muita gente! <br>
+           ${cont} elefantes ... muita mais! <br><br>` 
+        }
+    }
+</script>
