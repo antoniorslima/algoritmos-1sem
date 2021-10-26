@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 <h4>Depósitos Bancários</h4>
 Quantos depósitos você realizou? <input id="ipt_dep" type="text">
 <br><br>
@@ -19,6 +19,7 @@ Qual o valor dos depósitos? <input id="ipt_valor" type="text">
 <br>
 <div id="div_total"></div>
 
+
 </body>
 </html>
 
@@ -28,18 +29,20 @@ Qual o valor dos depósitos? <input id="ipt_valor" type="text">
         div_total.innerHTML= '';
         var deposito = Number(ipt_valor.value);
         var saldo= 0;
-        if (ipt_dep.value < 3 || ipt_dep.value > 24) {
-            alert('Quantidade de depósitos tem que ser maior que 3 e menor que 24')
+        if (ipt_dep.value < 3 || ipt_dep.value >= 24) {
+            alert('Quantidade de depósitos tem que ser maior que 3 e menor que 24');
         } 
-        else if (ipt_valor.value < 1000) {
-            alert('Depósitos apenas a partir de 1000 reais')
+        else if (deposito < 500) {
+            alert('Depósitos apenas a partir de 1000 reais');
         }
         else {
+            
         for (var cont = 1; cont <= ipt_dep.value; cont++) {
             saldo= saldo + deposito;
 
             if (cont % 3 == 0) {
-                div_dep.innerHTML+= `${cont}º mês: R$${(saldo + (saldo * 0.01)).toFixed(2)}<br>`;
+                saldo= saldo + saldo * 0.01;
+                div_dep.innerHTML+= `${cont}º mês: R$${(saldo).toFixed(2)}<img src="https://imagensemoldes.com.br/wp-content/uploads/2020/04/Imagem-de-Estrela-PNG.png" height="10px"><br>`;
             } 
             else {
                 div_dep.innerHTML+= `${cont}º mês: R$${saldo.toFixed(2)}<br>`;
