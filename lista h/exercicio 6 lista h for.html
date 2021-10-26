@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+Insira um número: <input id="ipt_vezes" type="text">
+<br><br>
+insira uma frase: <input id="ipt_frase" type="text">
+<br><br>
+<button onclick="mostrar()">Papagaio</button>
+<br><br>
+<div id="div_msg"></div>
+
+    
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        for (var cont = 0; cont < ipt_vezes.value; cont++) {
+            alert(ipt_frase.value);
+            
+        }
+    }
+</script>
