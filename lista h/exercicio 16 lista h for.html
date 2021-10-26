@@ -32,11 +32,11 @@ Qual o valor dos depósitos? <input id="ipt_valor" type="text">
         if (ipt_dep.value < 3 || ipt_dep.value >= 24) {
             alert('Quantidade de depósitos tem que ser maior que 3 e menor que 24');
         } 
-        else if (deposito < 500) {
+        else if (deposito < 1000) {
             alert('Depósitos apenas a partir de 1000 reais');
         }
         else {
-            
+
         for (var cont = 1; cont <= ipt_dep.value; cont++) {
             saldo= saldo + deposito;
 

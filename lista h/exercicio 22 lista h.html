@@ -15,16 +15,13 @@ Insira a quantidade de números a serem sorteados: <input id="ipt_qtd" type="num
 Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="number">
 <br>
 <button onclick="sortear()">Sortear</button>
-</div>
-<div id="div_final" style="display: none;" >
-    O maior número sorteado foi: <span id="span_maior"></span>
-<br><br>
-    O menor número sorteado foi: <span id="span_menor"></span>
-<br><br>
-    A média de todos os números sorteados é: <span id="span_media"></span>
-</div>
-<div id="div_num"></div>
 
+</div>
+<div id="div_aparecer" style="display: none;">
+<div id="div_final"></div>
+<div id="div_num"></div>
+<button onclick="voltar()">voltar</button>
+</div>
 </body>
 </html>
 
@@ -38,11 +35,15 @@ Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="n
         }
         else {
             div_inicial.style.display= 'none';
-            div_final.style.display= 'block';
+            div_aparecer.style.display= 'block';
             contador= 0;
+            var min = 101;
+            var max = 0;
+            var med = 0;
             while (contador < ipt_qtd.value) {
-                var sorteio = (Math.random()* 100).toFixed()
-                contador ++;
+                var sorteio = Number((Math.random()* 100).toFixed());
+                med = med + sorteio;
+                media = med / ipt_qtd.value;
                
             if (sorteio % ipt_divisor.value == 0) {
                 div_num.innerHTML+= `<span style="color: red;">${sorteio}</span> <br>`; 
@@ -50,9 +51,25 @@ Insira qual divisabilidade vocÊ quer encontrar: <input id="ipt_divisor" type="n
             else {
                 div_num.innerHTML+= sorteio+'<br>'; 
             }
-            
+            if (sorteio < min) {
+                min = sorteio;
+            }
+            if (sorteio > max) {
+                max = sorteio;
+            }
+            contador ++;
+            div_final.innerHTML= ` O maior número sorteado foi: ${max}
+                                    <br><br>
+                                    O menor número sorteado foi:${min}
+                                    <br><br>
+                                    A média de todos os números sorteados é: ${media} `
             }
             
         }
+    }
+    function voltar() {
+        div_inicial.style.display= 'block';
+        div_aparecer.style.display= 'none';
+        div_num.innerHTML= '';
     }
 </script>
