@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 20  - for</title>
+</head>
+<body>
+    <h4>VEJA SUA SORTE!</h4>
+    <button onclick="sorte()">Ver minha sorte</button>
+    <br><br>
+    <div id="div_status"></div>
+    <br><br>
+    <div id="div_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function sorte() {
+        var par= 0;
+        var impar= 0;
+        div_msg.innerHTML = '';
+
+        for (var cont = 0; cont <= 21; cont++) {
+            var sorteio = (Math.random()*100).toFixed();
+            
+        if (sorteio % 2 == 0) {
+            par ++;
+            div_msg.innerHTML+= '<img src="https://gartic.com.br/imgs/mural/am/amandabelela/coracao.png" height="100px">';
+        }
+        else {
+            impar ++;
+            div_msg.innerHTML+= '<img src= "https://http2.mlstatic.com/D_NQ_NP_831596-MLB26742474685_012018-O.jpg" height="100px">';
+        }
+        if (par > impar) {
+            div_status.innerHTML= "<b>Você tem mais sorte no amor</b>";
+        }
+        else {
+            div_status.innerHTML= "<b>Você tem mais sorte no jogo</b>";
+        }
+        if (par == 11 || impar == 11) {
+            break;
+        }
+    }
+    }
+</script>

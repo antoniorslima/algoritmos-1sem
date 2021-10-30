@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 19 - for</title>
+</head>
+<body>
+    <h3>Teste de idade</h3>
+
+    Insira sua idade atual: <input id="ipt_idade" type="text" onkeyup="verificar()">
+<br><br>
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var idade = ipt_idade.value;
+        div_msg.innerHTML= '';
+        for (var cont = 0; cont <= idade; cont++) {
+            div_msg.innerHTML+= `${cont} anos `;
+            if ( cont <= 4) {
+                div_msg.innerHTML+= `(primeira infancia) <br>`; 
+            }
+            else if (cont <= 6) {
+                div_msg.innerHTML+= `(pré-escolar) <br>`; 
+            }
+            else if (cont <= 10) {
+                div_msg.innerHTML+= `(segunda infancia) <br>`; 
+            }
+            else if (cont <= 18) {
+                div_msg.innerHTML+= `(adolescencia) <br>`; 
+            }
+            else if (cont <= 50) {
+                div_msg.innerHTML+= `(adulto) <br>`; 
+            }
+            else if (cont <= 100) {
+                div_msg.innerHTML+= `(melhor idade) <br>`; 
+            }
+            else {
+                div_msg.innerHTML+= `(matusalem) <br>`; 
+            }
+        }
+    }
+</script>
