@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 2</title>
+</head>
+<body>
+  
+Insira um destino: <input id="ipt_destino" type="text">
+<button onclick="adicionar()">cadastrar</button>
+<br><br>
+<button onclick="primeira()">primeira viagem</button>
+<button onclick="terceira()">terceira viagem</button>
+<button onclick="ultima()">ultima viagem</button>
+<div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    var vt_viagem= [];
+    function adicionar() {
+        vt_viagem.push(ipt_destino.value);
+    }
+    function primeira() {
+        if (vt_viagem.length < 1) {
+            div_msg.innerHTML= `Ainda nao viajou`;
+        }
+        else {
+            div_msg.innerHTML= `${vt_viagem[0]}`;
+        }
+    }
+    function terceira() {
+        if (vt_viagem.length > 2) {
+            div_msg.innerHTML= `${vt_viagem[2]}`;
+        }
+        else {
+            div_msg.innerHTML= `Ainda nao viajou`;
+        }
+    }
+    // function ultima() {
+    //     if (vt_viagem.length >= 1) {
+    //         div_msg.innerHTML= `${vt_viagem[0]}`;
+    //     }
+    //     else {
+    //         div_msg.innerHTML= `Ainda nao viajou`;
+    //     }
+    // }
+
+</script>

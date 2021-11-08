@@ -71,9 +71,17 @@ Dígito: <input id="ipt_digito" type="text">
         div_segunda.style.display='block';
     }
     }
-
+var saldo_inicial= 0;
     function extrato() {
-        
+        if (modo.value == 'Débito') {
+            saldo_inicial= saldo_inicial + Number(ipt_mov.value);
+        div_extrato.innerHTML= `${ipt_data.value} - Saldo inicial R$ ${saldo_inicial} <br> ${modo.value} R$ 88888,99 <br> Saldo final= R$ 77777,77`
+        }
+        else {
+            saldo_inicial= saldo_inicial - ipt_mov.value;
+        div_extrato.innerHTML= `${ipt_data.value} - Saldo inicial R$ ${saldo_inicial} <br> ${modo.value} R$ ${ipt_mov.value} <br> Saldo final= R$ 77777,77`
+        }
+       
     }
 
     function voltar() {
