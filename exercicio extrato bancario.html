@@ -14,11 +14,10 @@ Nome do cliente: <input id="ipt_nome" type="text">
 <br><br>
 Código do banco: <input id="ipt_banco" type="text">
 <br><br>
-Agência: <input id="ipt_agencia" type="text"> 
-<br><br>
-Conta: <input id="ipt_conta" type="text">
-<br><br>
-Dígito: <input id="ipt_digito" type="text">
+<input id="ipt_agencia" type="text" placeholder="agencia"> 
+<input id="ipt_conta" type="text" placeholder="conta">
+-
+<input id="ipt_digito" type="text" placeholder="digito">
 <br><br>
 <button onclick="consultar()">Consultar extrato</button>
 </div>
@@ -35,6 +34,7 @@ Dígito: <input id="ipt_digito" type="text">
     Valor da movimentação: <input id="ipt_mov" type="text">
     <br><br>
 <button onclick="extrato()">Extrato</button> <button onclick="voltar()">Mudar de conta</button>
+<br><br>
 </div>
 <div id="div_extrato"></div>
 </div>
@@ -71,17 +71,18 @@ Dígito: <input id="ipt_digito" type="text">
         div_segunda.style.display='block';
     }
     }
-var saldo_inicial= 0;
+    var saldo_inicial= 0;
     function extrato() {
+        
         if (modo.value == 'Débito') {
-            saldo_inicial= saldo_inicial + Number(ipt_mov.value);
-        div_extrato.innerHTML= `${ipt_data.value} - Saldo inicial R$ ${saldo_inicial} <br> ${modo.value} R$ 88888,99 <br> Saldo final= R$ 77777,77`
+            var saldo_final= saldo_inicial - Number(ipt_mov.value);
+        div_extrato.innerHTML+= `${ipt_data.value} <br> <b>Saldo inicial</b>    R$ ${saldo_inicial.toFixed(2)} <br> <b>${modo.value}</b> R$ ${ipt_mov.value} <br> <b>Saldo final</b>    R$ ${saldo_final.toFixed(2)}<br><br>`;
         }
         else {
-            saldo_inicial= saldo_inicial - ipt_mov.value;
-        div_extrato.innerHTML= `${ipt_data.value} - Saldo inicial R$ ${saldo_inicial} <br> ${modo.value} R$ ${ipt_mov.value} <br> Saldo final= R$ 77777,77`
+            saldo_final= saldo_inicial + Number(ipt_mov.value);
+        div_extrato.innerHTML+= `${ipt_data.value} <br> <b>Saldo inicial</b>    R$ ${saldo_inicial.toFixed(2)} <br> <b>${modo.value}</b> R$ ${ipt_mov.value} <br> <b>Saldo final</b>    R$ ${saldo_final.toFixed(2)}<br><br>`;
         }
-       
+       saldo_inicial= saldo_final;
     }
 
     function voltar() {
