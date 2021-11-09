@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="ipt_aluno" type="text" placeholder="nome do aluno">
+    <button onclick="cadastrar()">cadastrar</button>
+    <br><br>
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        var vt_alunos= [];
+        vt_alunos.push(ipt_aluno.value);
+        ipt_aluno.value='';
+        for (var cont = vt_alunos.length -1; cont >= 0; cont--) {
+            div_msg.innerHTML+= `<br> ${vt_alunos[cont]}`;
+        }
+    }
+</script>
