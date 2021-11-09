@@ -17,12 +17,14 @@
 </html>
 
 <script>
+var vt_alunos= [];
     function cadastrar() {
-        var vt_alunos= [];
+        
         vt_alunos.push(ipt_aluno.value);
         ipt_aluno.value='';
+        div_msg.innerHTML = '';
         for (var cont = vt_alunos.length -1; cont >= 0; cont--) {
-            div_msg.innerHTML+= `<br> ${vt_alunos[cont]}`;
+            div_msg.innerHTML += `<br> ${vt_alunos[cont]}`;
         }
     }
 </script>
