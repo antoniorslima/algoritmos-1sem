@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 12 lista i</title>
+</head>
+<body>
+    <h3>Controle de Filhos</h3>
+Nome do filho: <input id="ipt_nome" type="text">
+<button onclick="cadastrar()">Cadastrar</button>
+
+</body>
+</html>
+
+<script>
+    var filhos= [];
+    function cadastrar() {  
+        if (filhos.indexOf(ipt_nome.value) == -1) {
+            filhos.push(ipt_nome.value);
+        } else {
+            alert('Não pode repetir nome do filho')
+        }
+    }
+</script>
