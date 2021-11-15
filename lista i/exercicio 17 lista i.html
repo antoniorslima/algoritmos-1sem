@@ -69,28 +69,21 @@ function registrar() {
         alert('a segunda nota tem que ser maior ou igual a primeira nota')
      } else {
          div_msg.innerHTML= '';
-        //  var max= 0;
-        // var min= 10;
-        // var maior1= '';
-        // var menor1= '';
-        //  var soma= 0;
+         var max= 0;
+        var min= 10;
+         var soma= 0;
     for (var cont = 1; cont < nota.length; cont++) {
         if (nota[cont - 1] >= menor && nota[cont - 1] <= maior) {
+            soma = soma + nota[cont -1]
             div_msg.innerHTML+= `O aluno ${nome[cont - 1]} ficou com a nota ${nota[cont - 1]}<br>`  
-            div_msg2.innerHTML= `Total de alunos registrados: ${nome.length}<br>Total de alunos listado: ${cont} (com nota no intervalo informado)<br>Maior Nota = ${maior1}<br>Menor Nota = ${menor1}<br>Média da Nota = ${soma / nota.length}`;
-        // for (var s = 0; s < nota.length; s++) {
-        //         soma+= Number(nota[s]);
-        //     }
-        
+            div_msg2.innerHTML= `Total de alunos registrados: ${nome.length}<br>Total de alunos listado: ${cont} (com nota no intervalo informado)<br>Maior Nota = ${max}<br>Menor Nota = ${min}<br>Média da Nota = ${soma / nota.length}`;
         }
-        // if (Number(nota[cont]) < min) {
-        //         min = nota[cont];
-        //         menor1= nota[cont];
-        //     }
-        //     if (Number(nota[cont]) > max) {
-        //         max = nota[cont];
-        //         maior1= nota[cont];
-        //     }
+        if (Number(nota[cont]) < min) {
+                min = nota[cont];
+            }
+            if (Number(nota[cont]) > max) {
+                max = nota[cont];
+            }
             
         }
      }
