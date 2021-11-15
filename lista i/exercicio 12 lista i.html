@@ -10,7 +10,10 @@
     <h3>Controle de Filhos</h3>
 Nome do filho: <input id="ipt_nome" type="text">
 <button onclick="cadastrar()">Cadastrar</button>
-
+<button onclick="atualizar()">Atualizar família</button>
+<br>
+<br>
+<div id="div_msg"></div>
 </body>
 </html>
 
@@ -20,7 +23,11 @@ Nome do filho: <input id="ipt_nome" type="text">
         if (filhos.indexOf(ipt_nome.value) == -1) {
             filhos.push(ipt_nome.value);
         } else {
-            alert('Não pode repetir nome do filho')
+            alert(`Não pode repetir nome do filho`)
         }
     }
+    function atualizar() {
+        div_msg.innerHTML= `<b>Você tem ${filhos.length} filhos <br> Seu custo mensal será aproximadamente R$ ${(filhos.length * 3000).toFixed(2)} se colocar eles em escola particular ou R$ ${(filhos.length * 1500).toFixed(2)} se eles estudarem em escola pública</b>`
+    }
+
 </script>

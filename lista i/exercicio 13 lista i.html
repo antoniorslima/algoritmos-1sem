@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 13 lista i</title>
+</head>
+<body>
+    
+<h3>Rendimento</h3>
+    <select id="situacao">
+        <option value="inicio">indique o resultado</option>
+        <option value="vitoria">vitoria</option>
+        <option value="empate">empate</option>
+        <option value="derrota">derrota</option>
+    </select>
+    <button onclick="registrar()">Registrar jogo</button>
+<br>
+<br>
+    <div id="div_msg"></div>
+<br>
+<br>
+Indique qual jogo quer saber: <input type="text" id="ipt_jogo" onkeyup="jogo()">
+<br>
+<br>
+<div id="div_msg2"></div>
+
+</body>
+</html>
+
+<script>
+    var resultado= [];        
+        var vitorias= 0;
+        var empates= 0;
+        var derrotas= 0;
+    function registrar() {
+        resultado.push(situacao.value); 
+        if (situacao.value == 'vitoria') {
+            vitorias ++;
+        }  
+        if (situacao.value == 'empate') {
+            empates ++;
+        }  
+        if (situacao.value == 'derrota') {
+            derrotas ++;
+        }
+        div_msg.innerHTML= `O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas<br> Pontuação total: ${(vitorias * 3) + (empates * 1) + (derrotas * 0)}<br>Aproveitamento: ${((((vitorias * 3) + (empates * 1) + (derrotas * 0))/((vitorias + empates + derrotas) * 3)) * 100).toFixed(2)}%`
+    }
+    function jogo() {
+        if (ipt_jogo.value > resultado.length) {
+            div_msg2.innerHTML= `<b>Não foi cadastrado um ${ipt_jogo.value}º jogo</b>`
+        } else if (resultado[ipt_jogo.value - 1] == 'vitoria'){
+            div_msg2.innerHTML= `<b>No ${ipt_jogo.value}º jogo o time ganhou</b>`
+        } else if (resultado[ipt_jogo.value - 1] == 'empate'){
+            div_msg2.innerHTML= `<b>No ${ipt_jogo.value}º jogo o time empatou</b>`
+        } else {
+            div_msg2.innerHTML= `<b>No ${ipt_jogo.value}º jogo o time perdeu</b>`
+        }
+    }
+
+</script>

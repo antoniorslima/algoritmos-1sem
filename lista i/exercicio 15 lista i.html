@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 15 lista i</title>
+</head>
+<body>
+    
+<h3>Loja eletronica</h3>
+Nome do produto: <input id="ipt_nome" type="text">
+Preço da compra: <input id="ipt_preco" type="text">
+<br>
+<br>
+<button onclick="cadastrar()">Cadastrar</button>
+<button onclick="relatorio()">Relatório de estoque</button>
+<br>
+<br>
+<div id="div_msg"></div>
+<br>
+<br>
+<div id="div_msg2"></div>
+<br>
+<br>
+<div id="div_msg3"></div>
+</body>
+</html>
+
+<script>
+    var produtos= [];
+    var precos= [];
+    function cadastrar() {
+        produtos.push(ipt_nome.value);
+        precos.push(ipt_preco.value);
+    }
+    function relatorio() {
+        div_msg2.innerHTML= '';
+        var max= 0;
+        var min= 99999;
+        var maior= '';
+        var menor= ''
+        for (var cont = 0; cont < produtos.length; cont++) {
+            div_msg.innerHTML= `<b>Total de produtos: ${produtos.length}</b>`;
+            div_msg2.innerHTML+= `<b>Produto ${cont + 1}: ${produtos[cont]}<br>Preço de compra: R$${precos[cont]}. Vender por: ${(Number(precos[cont]) * 1.25).toFixed(2)}<br><br></b>`
+            div_msg3.innerHTML= `Produto mais caro: ${maior}<br>Produto mais barato: ${menor}<br>Total das compras: ${soma}<br>Média dos preços: R$${(soma / precos.length).toFixed(2)}`
+            var soma = 0;
+            for (var s = 0; s < precos.length; s++) {
+                soma+= Number(precos[s]);   
+            }
+            if (Number(precos[cont]) < min) {
+                min = precos[cont];
+                menor= produtos[cont];
+            }
+            if (Number(precos[cont]) > max) {
+                max = precos[cont];
+                maior= produtos[cont];
+            }
+        }
+    }
+</script>
