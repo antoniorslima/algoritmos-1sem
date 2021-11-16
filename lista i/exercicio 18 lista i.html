@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 18 lista i</title>
+</head>
+<body>
+    <div id="div_inicial">
+        <h2>Análise de performance de Alunos - Registro</h2>
+    
+Entre com o nome do aluno: <input id="ipt_nome" type="text" placeholder="nome do aluno">
+<br>
+<br>
+Notas 
+<br>
+<br>
+<input id="ipt_ac1" type="text" placeholder="nota da AC 1">
+<input id="ipt_ac2" type="text" placeholder="nota da AC 2">
+<input id="ipt_ac3" type="text" placeholder="nota da AC 3">
+<br>
+<br>
+<button onclick="registrar()">Registrar</button>
+<button onclick="analisar()">Analisar</button>
+<br>
+<br>
+<div id="div_atualizacao"></div>
+</div>
+<div id="div_final" style="display: none;">
+    <h2>Análise de performance de Alunos - Pesquisa</h2>
+    Entre com o intervalo de notas: 
+    <input id="ipt_menor" type="text" placeholder="de">
+    <input id="ipt_maior" type="text" placeholder="até"> 
+    Avaliação
+    <select id="avaliacao">
+        <option value="todas">todas</option>
+        <option value="ac1">AC1</option>
+        <option value="ac2">AC2</option>
+        <option value="ac3">AC3</option>
+    </select>
+    <br>
+<br>
+    <button onclick="pesquisarTudo()">Pesquisar em tudo</button>
+    <button onclick="pesquisarAC()">Pesquisar em uma AC</button>
+<br><br>
+<div id="div_msg"></div>
+<div id="div_msg2"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+    var nome= [];
+    var ac1= [];
+    var ac2= [];
+    var ac3= [];
+    function registrar() {
+    if (ipt_nome.value == '' || ipt_ac1.value == '' || ipt_ac2.value == '' || ipt_ac3.value == '') {
+        alert('Nome e nota têm que estar preenchido')
+    } else if (ipt_ac1.value < 0 || ipt_ac1.value > 10 || ipt_ac2.value < 0 || ipt_ac2.value > 10 || ipt_ac3.value < 0 || ipt_ac3.value > 10) {
+        alert('Nota tem que estar entre 0 e 10')
+    } else {
+    nome.push(ipt_nome.value);
+    ac1.push(Number(ipt_ac1.value));
+    ac2.push(Number(ipt_ac1.value));
+    ac3.push(Number(ipt_ac1.value));
+    ipt_nome.value='';
+    ipt_ac1.value='';
+    ipt_ac2.value='';
+    ipt_ac3.value='';
+    div_atualizacao.innerHTML='';
+    }
+}
+function analisar() {
+     div_inicial.style.display= 'none';
+     div_final.style.display= 'block';
+ }
+ function pesquisarTudo() {
+     var maior = Number(ipt_maior.value);
+     var menor = Number(ipt_menor.value);
+    if (maior == '' ||) {
+        
+    }
+     else if (menor < 0 || menor > 10) {
+        alert('a primeira nota tem que estar entre 0 e 10')
+     } else if (maior < menor) {
+        alert('a segunda nota tem que ser maior ou igual a primeira nota')
+     }
+ }
+</script>

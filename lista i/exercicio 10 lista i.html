@@ -11,6 +11,46 @@
 Linha de ônibus:  <input id="ipt_bus" type="text">
 <button onclick="cadastrar()">gravar busão</button>
 <br><br>
+Pesquise seu histórico <input id="ipt_hist" type="text">
+<button onclick="pesquisar()">Pesquisar</button>
+<br>
+<br>
 <div id="div_linha"></div>
+
 </body>
 </html>
+
+<script>
+    var linha= [];
+    function cadastrar() {
+        if (ipt_bus.value.length == 0) {
+            alert("preencher campo")
+        } 
+        else {
+            linha.push(ipt_bus.value);
+            ipt_bus.value= '';
+            div_linha.innerHTML= '';
+            for (var cont = linha.length -1; cont >= 0; cont--) {
+                div_linha.innerHTML += `<br> ${linha[cont]}`;
+            }
+        }
+    }
+    function pesquisar() {
+        var contador= 0;
+        if (linha.indexOf(ipt_hist.value) == -1) {
+            div_linha.innerHTML= `<b>Você nunca pegou essa linha</b>`;
+        }
+        else{
+            var ordem = '';
+            for (var cont = 0; cont < linha.length; cont++) {
+                if (linha[cont] == ipt_hist.value) {
+                    ordem += `${cont+1}, `;
+                    contador ++;
+                }
+            }
+            if (contador > 0) {
+                div_linha.innerHTML= ` Você já pegou essa linha ${contador} vezes, nessa ordem: ${ordem}`;
+            }
+        }
+    }
+</script>
