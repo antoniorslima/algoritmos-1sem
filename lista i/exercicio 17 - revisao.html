@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 17 lista i</title>
+</head>
+<body>
+    <h2>Análise de performance de Alunos - Registro</h2>
+    <div id="div_inicial">
+Entre com o nome do aluno: <input id="ipt_nome" type="text" placeholder="nome do aluno">
+<br>
+<br>
+Entre com a nota do aluno: <input id="ipt_nota" type="text" placeholder="nota do aluno">
+<br>
+<br>
+<button onclick="registrar()">Registrar</button>
+<button onclick="analisar()">Analisar</button>
+<br>
+<br>
+<div id="div_atualizacao"></div>
+</div>
+<div id="div_final" style="display: none;">
+    Entre com o intervalo de notas: 
+    <input id="ipt_menor" type="text" placeholder="de">
+    <input id="ipt_maior" type="text" placeholder="até">
+    <br>
+<br>
+    <button onclick="pesquisar()">Pesquisar</button>
+<br><br>
+<div id="div_msg"></div>
+<div id="div_msg2"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+    var nome= [];
+    var nota= [];
+function registrar() {
+    if (ipt_nome.value == '' || ipt_nota.value == '') {
+        alert('Nome e nota têm que estar preenchido')
+    } else if (ipt_nota.value < 0 || ipt_nota.value > 10) {
+        alert('Nota tem que estar entre 0 e 10')
+    } else {
+    nome.push(ipt_nome.value);
+    nota.push(Number(ipt_nota.value));
+    ipt_nota.value='';
+    ipt_nome.value='';
+    div_atualizacao.innerHTML='';
+    }
+    for (var cont = nome.length -1; cont >= 0; cont--) {
+            div_atualizacao.innerHTML += `<br> Nome: ${nome[cont]} Nota: ${nota[cont]}`;
+        }
+}
+
+function analisar() {
+    if (nome.length == 0) {
+        alert('inserir pelo menos 1 nota')
+    }
+    else {
+        div_inicial.style.display= 'none';
+        div_final.style.display= 'block'; 
+    }
+}
+
+function pesquisar() {
+        var maior = Number(ipt_maior.value);
+        var menor = Number(ipt_menor.value);
+        div_msg2.innerHTML= '';
+        var max= 0;
+        var min= 10;
+        var soma= 0;
+        var encontrado= 0;
+        var total= 0;
+        var contador= 0;
+        for (var cont = 0; cont <= nota.length -1; cont++){
+            encontrado= nota[cont];
+            if (nota[cont] >= menor && nota[cont] <= maior) {
+                contador ++;
+                total+= encontrado;
+                div_msg.innerHTML+= `O aluno ${nome[cont]} ficou com a nota ${nota[cont]}<br>` 
+                if (Number(nota[cont]) < min) {
+                min = nota[cont];
+                }
+                if (Number(nota[cont]) > max) {
+                    max = nota[cont];
+                }
+            }
+        }
+         
+            div_msg2.innerHTML= `Total de alunos registrados: ${nome.length}<br>Total de alunos listado: ${contador} (com nota no intervalo informado)<br>Maior Nota = ${max}<br>Menor Nota = ${min}<br>Média da Nota = ${(total / contador).toFixed(2)}`;
+}
+</script>
