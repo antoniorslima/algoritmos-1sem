@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Continuada 3</title>
+</head>
+<body>
+    <h2>Controle de Reembolso de Despesas com Locomoção</h2>
+    Entre com o valor do Reembolso: 
+    <input id="ipt_reembolso" type="text">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <br>
+    <div id="div_qtd"></div>
+    <br>
+    <br>
+    <br>
+    <h2>Consulta dos Reembolsos</h2>
+    <b>Entre com o intervalo de valores a ser pesquisado:</b>
+    <br>
+    de: <input id="ipt_de" type="text"> até: <input id="ipt_ate" type="text"> 
+    <button onclick="resumir()">Resumir intervalo</button>
+    <br>
+    <br>
+    <div id="div_msg"></div>
+    <br>
+    <br>
+    <div id="div_ordem"></div>
+</body>
+</html>
+
+<script>
+    var vt_reembolso= [];
+    var vt_validos= [];
+    var qtd_cadastros= 0;
+function cadastrar() {
+    if (ipt_reembolso.value == '') {
+        alert('Insira um valor')
+    } else if (ipt_reembolso.value < 4 || ipt_reembolso.value > 16) {
+        alert('O reembolso tem que estar entre R$4,00 e R$16,00')
+    } else {
+        vt_reembolso.push(Number(ipt_reembolso.value));
+        qtd_cadastros ++;
+        div_qtd.innerHTML= `<b>Total de Reembolsos cadastrados: ${qtd_cadastros}</b>`
+        ipt_reembolso.value='';
+    }
+}
+
+function resumir() {
+    var de= Number(ipt_de.value);
+    var ate= Number(ipt_ate.value);
+    var max= 0;
+    var min= 16;
+    var soma= 0;
+    var valido= 0; 
+    var total= 0;
+    var contador= 0;
+    ipt_de.value= '';
+    ipt_ate.value= '';
+    if (de < 4 || de > 16 || ate < 4 || ate > 16) {
+        alert('os valores tÊm que estar entre R$4,00 e R$16,00')
+     } else if (ate < de) {
+        alert('o segundo valor tem que ser maior ou igual o primeiro valor')
+     } else {
+        for (var cont = 0; cont <= vt_reembolso.length -1; cont++){
+            valido= Number(vt_reembolso[cont]);
+            if (vt_reembolso[cont] >= de && vt_reembolso[cont] <= ate) {
+                contador ++;
+                total+= valido; 
+                vt_validos.push(vt_reembolso[cont]);
+                if (Number(vt_reembolso[cont]) < min) {
+                min = Number(vt_reembolso[cont]);
+                }
+                if (Number(vt_reembolso[cont]) > max) {
+                    max = Number(vt_reembolso[cont]);
+                }
+                div_ordem.innerHTML= '';
+                for (var i = vt_validos.length -1; i >= 0; i--) {
+            div_ordem.innerHTML += `<br> Cadastro nº: ${vt_reembolso.indexOf(vt_validos[i]) + 1} Valor do Reembolso: ${vt_validos[i]}`;
+            }
+            
+        }
+        }
+        div_msg.innerHTML= `<b> Maior Valor de Reembolso: R$${(max).toFixed(2)} <br><br>Menor Valor de Reembolso: R$${(min).toFixed(2)} <br><br>Valor Médio dos Reembolsos: R$${(total / contador).toFixed(2)}</b>`;
+     }
+}
+</script>
