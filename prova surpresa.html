@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>AllFat - Auxílio Alimentação</h2>
+    <div id="div_cad">
+    Informe o valor do benefício: <input id="ipt_valor" type="text">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button> 
+    <button onclick="pesquisar()">Pesquisar</button>
+    <br>
+    <br>
+    <b>Histórico de Benefícios</b>
+    <div id="div_atualizar"></div>
+    </div>
+    <div id="div_pesq" style="display: none;">
+    <b>Informe o intervalo de valores para pesquisa</b>
+    <br>
+    de: <input id="ipt_de" type="text"> até: <input id="ipt_ate" type="text"> 
+    <button onclick="resumir()">Resumir intervalo</button>
+    <br>
+    <div id="div_resumo"></div>
+    <br>
+    <b>Informe o intervalo de valores para pesquisa</b>
+    <br>
+    <input id="ipt_pesquisa" type="text">
+    <button onclick="procurar()">Procurar valor</button>
+    <br>
+    <div id="div_proc"></div>
+    <br>
+    </div>
+</body>
+</html>
+
+<script>
+    var vt_valor= []
+function cadastrar() {
+        if (ipt_valor.value == '') {
+        alert('Insira um valor')
+    } else if (ipt_valor.value < 3 || ipt_valor.value > 35) {
+        alert('O reembolso tem que estar entre R$3,00 e R$35,00')
+    } else {
+    vt_valor.push(Number(ipt_valor.value));
+        ipt_valor.value='';
+        div_atualizar.innerHTML = '';
+        for (var cont = vt_valor.length -1; cont >= 0; cont--) {
+            div_atualizar.innerHTML += `<br>A ${cont + 1}ª ocorrência é R$${vt_valor[cont]}`;
+        }
+    }
+}
+
+function pesquisar() {
+    if (vt_valor.length == 0) {
+        alert('Cadastre um valor') 
+    }
+    else {
+        div_cad.style.display='none';
+        div_pesq.style.display='block';
+    }
+}
+
+function resumir() {
+    var de= Number(ipt_de.value);
+    var ate= Number(ipt_ate.value);
+    var max= 0;
+    var min= 16;
+    var soma= 0;
+    var valido= 0; 
+    var total= 0;
+    var contador= 0;
+    ipt_de.value= '';
+    ipt_ate.value= '';
+    if (de < 3 || de > 35 || ate < 3 || ate > 35) {
+        alert('os valores tÊm que estar entre R$3,00 e R$35,00')
+     } else if (ate < de) {
+        alert('o segundo valor tem que ser maior ou igual o primeiro valor')
+     } else {
+        for (var cont = 0; cont <= vt_valor.length -1; cont++){
+            valido= Number(vt_valor[cont]);
+            if (vt_valor[cont] >= de && vt_valor[cont] <= ate) {
+                contador ++;
+                total+= valido;
+                if (Number(vt_valor[cont]) < min) {
+                min = Number(vt_valor[cont]);
+                }
+                if (Number(vt_valor[cont]) > max) {
+                    max = Number(vt_valor[cont]);
+                }    
+            }
+        }
+        div_resumo.innerHTML= `<br><b>Resumo dos Benefícios desse Intervalo</b>
+        <br>Maior Valor encontrado no intervalo: R$${(max).toFixed(2)} <br>Menor Valor encontrado no intervalo: R$${(min).toFixed(2)} <br>Valor Médio dos valores do intervalo: R$${(total / contador).toFixed(2)}`;
+     }
+}
+
+function procurar() {
+    if (ipt_pesquisa.value == '') {
+        alert('Insira um valor')
+    } else if (ipt_pesquisa.value < 3 || ipt_pesquisa.value > 35) {
+        alert('a pesquisa tem que estar entre R$3,00 e R$35,00')
+    } else {
+        div_proc.innerHTML='';
+        for (var cont = 0; cont < vt_valor.length; cont++) {
+             if (vt_valor[cont] == ipt_pesquisa.value){
+                div_proc.innerHTML+= `<br> O valor R$${vt_valor[cont]} foi encontrado na ${cont + 1}ª ocorrência`;
+            } else if (vt_valor.indexOf(Number(ipt_pesquisa.value)) == -1) {
+                div_proc.innerHTML= `O valor R$${ipt_pesquisa.value} NÃO foi encontrado`;
+            } 
+            
+        }
+    }
+}
+
+</script>
