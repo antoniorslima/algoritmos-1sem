@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cofrinho</title>
+</head>
+<body>
+    <h1>Seu cofrinho</h1>
+    Selecione o valor da moedinha:
+    <br>
+    <br>
+    <button onclick="guardar(1)">1 real</button>
+    <button onclick="guardar(0.5)">50 centavos</button>
+    <button onclick="guardar(0.25)">25 centavos</button>
+    <button onclick="guardar(.10)">10 centavos </button>
+    <button onclick="guardar(0.01)">1 centavo</button>
+    <div id="div_valor"></div>
+    <div id="div_media"></div>
+</body>
+</html>
+
+<script>
+    var cofrinho= 0;
+    var depositos = 0;
+    function guardar(valor) {
+        depositos ++;
+        
+        cofrinho += valor;
+        div_valor.innerHTML= `<br><b>Quantidade de depósitos:</b>${depositos}
+                              <br><b>Valor guardado:</b>R$${cofrinho.toFixed(2).replace('.',',')}`;
+        var media= cofrinho/depositos;
+        mostrar_media(media);
+    }
+
+    function mostrar_media(par_media) {
+        div_media.innerHTML= `<br><b>Média dos depósitos:</b> ${(par_media).toFixed(2).replace('.',',')}`;
+    }
+</script>
