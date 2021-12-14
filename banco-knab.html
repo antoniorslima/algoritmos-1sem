@@ -26,9 +26,15 @@ Estimativa de Retirada (em dias): <input id="ipt_periodo" type="text">
 
 <script>
     function validar() {
-        var nome= ipt_nome.value;
-        var dias= ipt_periodo.value;
-        var retorno= 
+        var nome= Number(ipt_nome.value);
+        var dias= Number(ipt_periodo.value);
+        var valor= Number(ipt_invest.value);
+        var taxa= Number(ipt_taxa.value);
+        var meses= dias / 30;
+        var retorno= calcular(valor,taxa,meses)
         div_msg.innerHTML= `Olá, ${nome}! Com a KNAB, em ${dias} dias, vocÊ receberá R$`
+    }
+    function calcular(par_valor,par_taxa,par_meses) {
+        valor_final= 
     }
 </script>
