@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco KNAB</title>
+</head>
+<body>
+    
+<h1>Banco KNAB</h1>
+<h3>Os investimentos possuem rendimento de <span style="color: red;">%TAXA</span> a cada 30 dias</h3>
+Nome: <input id="ipt_nome" type="text">
+<br>
+Dinheiro atual a investir: <input id="ipt_invest" type="text">
+<br>
+Taxa(%): <input id="ipt_taxa" type="text">
+<br>
+Estimativa de Retirada (em dias): <input id="ipt_periodo" type="text">
+<br>
+<button onclick="validar()">Calcular Rendimento</button>
+<br><br>
+<div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var nome= ipt_nome.value;
+        var dias= ipt_periodo.value;
+        var retorno= 
+        div_msg.innerHTML= `Olá, ${nome}! Com a KNAB, em ${dias} dias, vocÊ receberá R$`
+    }
+</script>
